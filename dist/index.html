@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="FNb3sthTM46YSk1FJZn9RRn9_pbTewM1s5jc1bazWuk" />
+    
+    <title>Pondok Pesantren Hidayatullah Panceng</title>
+    
+    <!-- Favicon / Tab Logo -->
+    <link rel="icon" type="image/jpeg" href="https://upload.wikimedia.org/wikipedia/commons/7/76/Logo_hidayatullah.jpg">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style id="dynamic-theme-styles">
+      :root {
+        --primary-color: #006f79;
+        --primary-dark: #00262a;
+        --primary-soft: #e6f7f8;
+        --font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      body {
+        font-family: var(--font-family);
+        font-size: 16px;
+      }
+      .bg-theme-primary { background-color: var(--primary-color) !important; }
+      .bg-theme-dark { background-color: var(--primary-dark) !important; }
+      .bg-theme-soft { background-color: var(--primary-soft) !important; }
+      .text-theme-primary { color: var(--primary-color) !important; }
+      .border-theme-primary { border-color: var(--primary-color) !important; }
+      .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+      .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+      .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-teal-700 selection:text-white text-base">
+
+    <!-- Header & Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div onclick="openAdminLoginModal()" class="flex items-center gap-3 cursor-pointer select-none">
+                    <div id="brand-logo-container" class="flex items-center justify-center text-theme-primary bg-transparent">
+                        <i id="brand-logo-icon" class="fa-solid fa-mosque text-3xl"></i>
+                    </div>
+                    <div>
+                        <h1 id="brand-title" class="font-extrabold text-theme-primary text-base sm:text-lg leading-tight tracking-tight">
+                            HIDAYATULLAH PANCENG
+                        </h1>
+                        <p id="brand-sub" class="text-xs text-theme-primary font-semibold tracking-wide">
+                            Pondok Pesantren Gresik
+                        </p>
+                    </div>
+                </div>
+                
+                <nav class="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-wider text-slate-700">
+                    <a href="#beranda" class="hover:text-teal-700 transition-colors py-1">Beranda</a>
+                    <a href="#profil" class="hover:text-teal-700 transition-colors py-1">Profil</a>
+                    <a href="#pendidikan" class="hover:text-teal-700 transition-colors py-1">Pendidikan</a>
+                    <a href="#program" class="hover:text-teal-700 transition-colors py-1">Program</a>
+                    <a href="#galeri" class="hover:text-teal-700 transition-colors py-1">Galeri</a>
+                    <a href="#berita" class="hover:text-teal-700 transition-colors py-1">Berita</a>
+                    <a href="#kontak" class="hover:text-teal-700 transition-colors py-1">Kontak</a>
+                </nav>
+                
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-slate-700 hover:text-teal-700 focus:outline-none">
+                    <i id="mobile-menu-icon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#beranda" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 hover:text-teal-700">Beranda</a>
+            <a href="#profil" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 hover:text-teal-700">Profil Pesantren</a>
+            <a href="#pendidikan" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 hover:text-teal-700">Unit Pendidikan</a>
+            <a href="#program" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 hover:text-teal-700">Program Unggulan</a>
+            <a href="#galeri" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 hover:text-teal-700">Galeri Kegiatan</a>
+            <a href="#berita" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 hover:text-teal-700">Berita & Artikel</a>
+            <a href="#kontak" onclick="toggleMobileMenu()" class="block py-2 text-sm font-semibold text-slate-700 hover:text-teal-700">Kontak & Lokasi</a>
+            <button onclick="toggleMobileMenu(); openPsbModal();" class="w-full mt-2 bg-theme-primary text-white py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2">
+                <i class="fa-solid fa-user-plus text-amber-400"></i>
+                <span>Penerimaan Santri Baru (PSB)</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="beranda" class="relative bg-theme-dark text-white min-h-[82vh] flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img id="hero-bg-img" src="data:image/svg+xml;charset=UTF-8,%3Csvg width='800' height='600' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%2300262a'/%3E%3C/svg%3E" alt="Pondok Pesantren Hidayatullah Panceng" class="w-full h-full object-cover object-center opacity-25 transform scale-105 transition-transform duration-1000">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/65"></div>
+            </div>
+            
+            <div class="relative z-10 max-w-5xl mx-auto px-4 py-16 text-center space-y-6">
+                <h2 id="hero-title" class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                    Melahirkan <span class="text-amber-400 italic">Huffazh</span> Pemimpin Berbasis Tauhid
+                </h2>
+                <p id="hero-sub" class="max-w-3xl mx-auto text-sm sm:text-lg text-slate-200 font-normal leading-relaxed">
+                    Lembaga pendidikan Islam terpadu yang memadukan keilmuan syar'i, pembentukan akhlak karimah, kepemimpinan, dan kecakapan masa depan di Panceng, Gresik.
+                </p>
+                <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
+                    <button onclick="openPsbModal()" class="bg-theme-primary hover:opacity-90 text-white text-sm font-bold px-7 py-3.5 rounded-xl shadow-lg transition-all flex items-center gap-2.5 border border-white/20">
+                        <i class="fa-solid fa-graduation-cap text-amber-400"></i>
+                        <span>Daftar Santri Baru (PSB)</span>
+                    </button>
+                    <a href="#profil" class="bg-white/10 hover:bg-white/20 text-white text-sm font-bold px-7 py-3.5 rounded-xl backdrop-blur-md transition-all flex items-center gap-2.5 border border-white/20 group">
+                        <i class="fa-solid fa-compass text-amber-400 group-hover:rotate-45 transition-transform duration-300"></i>
+                        <span>Kenal Lebih Dekat</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profil Pesantren Section -->
+        <section id="profil" class="py-12 md:py-16 bg-white border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-5 relative">
+                        <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-slate-100">
+                            <img id="intro-img" src="data:image/svg+xml;charset=UTF-8,%3Csvg width='800' height='600' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23e2e8f0'/%3E%3C/svg%3E" alt="Suasana Pesantren Hidayatullah" class="w-full h-80 sm:h-96 object-cover">
+                        </div>
+                    </div>
+                    
+                    <div class="lg:col-span-7 space-y-5">
+                        <div class="inline-flex items-center gap-2 text-theme-primary font-bold text-xs uppercase tracking-wider">
+                            <i class="fa-solid fa-kaaba"></i>
+                            <span>Tentang Pesantren</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 leading-snug">
+                            Pondok Pesantren Hidayatullah Panceng
+                        </h3>
+                        <p id="about-text-1" class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                            Pondok Pesantren Hidayatullah Panceng didirikan sebagai wujud komitmen nyata dalam membina generasi muda Islam di wilayah Panceng, Gresik. Kami menghadirkan ekosistem pendidikan yang seimbang antara al-Ulum asy-Syar'iyyah, ilmu sains modern, serta kecakapan hidup.
+                        </p>
+                        <p id="about-text-2" class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                            Melalui lingkungan bertradisi Islami yang asri dan kondusif, setiap santri dibimbing untuk menjadi pribadi yang teguh dalam aqidah, tertib dalam ibadah, anggun dalam akhlak, serta unggul dalam prestasi akademik.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                            <div class="bg-theme-soft border border-slate-200/80 p-4 rounded-xl space-y-1.5">
+                                <h4 class="font-bold text-theme-primary text-xs uppercase tracking-wider flex items-center gap-1.5">
+                                    <i class="fa-solid fa-eye text-amber-500"></i> Visi Utama
+                                </h4>
+                                <p id="vision-text" class="text-xs sm:text-sm text-slate-700 italic font-medium leading-relaxed">
+                                    "Menjadi Pesantren Unggul dalam Mencetak Generasi Qur'ani, Berilmu, Berkarakter, dan Berdaya Saing."
+                                </p>
+                            </div>
+                            
+                            <div class="bg-theme-soft border border-slate-200/80 p-4 rounded-xl space-y-1.5">
+                                <h4 class="font-bold text-theme-primary text-xs uppercase tracking-wider flex items-center gap-1.5">
+                                    <i class="fa-solid fa-bullseye text-amber-500"></i> Misi Utama
+                                </h4>
+                                <p id="mission-text" class="text-xs sm:text-sm text-slate-700 font-normal whitespace-pre-line leading-relaxed">
+                                    Menyelenggarakan pendidikan Islam terpadu, membina aqidah & akhlakul karimah, serta mengembangkan kemandirian santri.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unit Pendidikan Section -->
+        <section id="pendidikan" class="py-12 md:py-16 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+                    <span class="text-theme-primary font-bold text-xs uppercase tracking-wider">Jenjang Formal & Pesantren</span>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-slate-900">Unit Pendidikan</h3>
+                    <p class="text-xs sm:text-sm text-slate-600">Pilihan jenjang pendidikan terpadu untuk membentuk masa depan santri yang berakhlak dan berprestasi.</p>
+                </div>
+                <div id="edu-units-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            </div>
+        </section>
+
+        <!-- Program Unggulan Section -->
+        <section id="program" class="py-12 md:py-16 bg-white border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10 space-y-2">
+                    <span class="text-theme-primary font-bold text-xs uppercase tracking-wider">Kurikulum Pembinaan</span>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-slate-900">Program Unggulan Santri</h3>
+                    <p class="text-xs sm:text-sm text-slate-600">Program pembinaan terarah untuk mengasah potensi spiritual, intelektual, dan kepemimpinan santri.</p>
+                </div>
+                <div id="programs-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            </div>
+        </section>
+
+        <!-- Galeri Kegiatan Section -->
+        <section id="galeri" class="py-12 md:py-16 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-8 space-y-2">
+                    <span class="text-theme-primary font-bold text-xs uppercase tracking-wider">Dokumentasi Pesantren</span>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-slate-900">Galeri Kegiatan Santri</h3>
+                    <p class="text-xs sm:text-sm text-slate-600">Potret suasana harian, ibadah, pembelajaran, dan aktivitas santri di Pondok Pesantren.</p>
+                </div>
+                <div class="flex flex-wrap items-center justify-center gap-2 mb-8 text-xs font-semibold">
+                    <button onclick="filterGallery('all')" class="gallery-filter-btn active bg-theme-primary text-white px-4 py-1.5 rounded-full shadow-sm" id="btn-gal-all">Semua Foto</button>
+                    <button onclick="filterGallery('pendidikan')" class="gallery-filter-btn bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 px-4 py-1.5 rounded-full" id="btn-gal-pendidikan">Pendidikan</button>
+                    <button onclick="filterGallery('tahfidz')" class="gallery-filter-btn bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 px-4 py-1.5 rounded-full" id="btn-gal-tahfidz">Tahfidz</button>
+                    <button onclick="filterGallery('ekstrakurikuler')" class="gallery-filter-btn bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 px-4 py-1.5 rounded-full" id="btn-gal-ekstrakurikuler">Ekstrakurikuler</button>
+                    <button onclick="filterGallery('kegiatan_santri')" class="gallery-filter-btn bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 px-4 py-1.5 rounded-full" id="btn-gal-kegiatan_santri">Kegiatan Santri</button>
+                    <button onclick="filterGallery('prestasi')" class="gallery-filter-btn bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 px-4 py-1.5 rounded-full" id="btn-gal-prestasi">Prestasi</button>
+                    <button onclick="filterGallery('kegiatan_pondok')" class="gallery-filter-btn bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 px-4 py-1.5 rounded-full" id="btn-gal-kegiatan_pondok">Kegiatan Pondok</button>
+                </div>
+                <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+            </div>
+        </section>
+
+        <!-- Berita & Artikel Section -->
+        <section id="berita" class="py-12 md:py-16 bg-white border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-10 text-center max-w-2xl mx-auto space-y-2">
+                    <span class="text-theme-primary font-bold text-xs uppercase tracking-wider">Kabar Terbaru</span>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-slate-900">Rilis Berita & Informasi Pesantren</h3>
+                    <p class="text-xs sm:text-sm text-slate-600">Informasi seputar aktivitas, prestasi, dan pengumuman resmi dari pesantren.</p>
+                </div>
+                <div id="news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="kontak" class="bg-theme-primary text-white border-t border-black/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div class="md:col-span-5 space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div id="footer-logo-container" class="flex items-center justify-center text-amber-400">
+                            <i class="fa-solid fa-mosque text-2xl"></i>
+                        </div>
+                        <h4 id="footer-title" class="font-extrabold text-white text-base leading-snug">
+                            Pondok Pesantren Hidayatullah Panceng
+                        </h4>
+                    </div>
+                    <p id="footer-desc-text" class="text-xs text-slate-100 leading-relaxed max-w-md">
+                        Alamat: Kec. Panceng, Kab. Gresik, Jawa Timur. Lembaga pendidikan Islam yang konsisten mencetak santri berkarakter Qur'ani, unggul, dan mandiri.
+                    </p>
+                </div>
+                
+                <div class="md:col-span-4 space-y-2">
+                    <h5 class="font-bold text-xs uppercase tracking-wider text-amber-400 mb-3">
+                        KONTAK & SEKRETARIAT
+                    </h5>
+                    <a id="footer-wa-link" href="https://wa.me/6281915601880" target="_blank" class="flex items-center gap-2.5 text-xs text-white hover:underline transition-colors">
+                        <i class="fa-brands fa-whatsapp text-emerald-300 text-sm"></i>
+                        <span id="footer-phone-text">081915601880</span>
+                    </a>
+                    <a id="footer-email-link" href="mailto:info@hidayatullahpanceng.sch.id" class="flex items-center gap-2.5 text-xs text-white hover:underline transition-colors">
+                        <i class="fa-solid fa-envelope text-amber-300 text-sm"></i>
+                        <span id="footer-email-text">info@hidayatullahpanceng.sch.id</span>
+                    </a>
+                    <a id="footer-maps-link" href="https://maps.app.goo.gl/EWNQAWuoZBREkEHs6" target="_blank" class="flex items-center gap-2.5 text-xs text-white hover:underline transition-colors">
+                        <i class="fa-solid fa-location-dot text-rose-300 text-sm"></i>
+                        <span id="footer-address-text">Panceng, Gresik - Jawa Timur</span>
+                    </a>
+                </div>
+                
+                <div class="md:col-span-3 space-y-2">
+                    <h5 class="font-bold text-xs uppercase tracking-wider text-amber-400 mb-3">
+                        NAVIGASI CEPAT
+                    </h5>
+                    <div class="grid grid-cols-2 gap-2 text-xs text-white font-medium">
+                        <a href="#beranda" class="text-white hover:underline transition-colors">Beranda</a>
+                        <a href="#profil" class="text-white hover:underline transition-colors">Profil</a>
+                        <button onclick="openPsbModal()" class="text-left text-white font-bold hover:underline transition-colors">SPMB / PSB</button>
+                        <a href="#pendidikan" class="text-white hover:underline transition-colors">Pendidikan</a>
+                        <a href="#program" class="text-white hover:underline transition-colors">Program</a>
+                        <a href="#galeri" class="text-white hover:underline transition-colors">Galeri</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-white/20 text-center text-xs text-slate-100">
+                <p id="footer-copyright-text">© 2026 Pondok Pesantren Hidayatullah Panceng. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Secret Admin Login Modal -->
+    <div id="admin-login-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl relative" onclick="event.stopPropagation()">
+            <button onclick="closeAdminLoginModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+            <div class="text-center mb-4">
+                <div class="w-12 h-12 bg-slate-100 text-theme-primary rounded-full flex items-center justify-center text-xl mx-auto mb-2">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h3 class="font-bold text-slate-900 text-base">Akses Portal Pengelola Website</h3>
+                <p class="text-xs text-slate-500 mt-1">Masukkan kata sandi pengelola untuk mengedit website.</p>
+            </div>
+            <form onsubmit="handleAdminLogin(event)" class="space-y-3">
+                <input type="password" id="admin-password-input" required placeholder="Masukkan Kata Sandi" class="w-full border rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-teal-700 focus:outline-none">
+                <div id="admin-login-error" class="hidden text-rose-600 text-[11px] text-center font-semibold">Kata sandi salah! Silakan coba lagi.</div>
+                <button type="submit" class="w-full bg-theme-primary text-white font-bold py-2 rounded-lg text-xs hover:opacity-90">Masuk Portal Admin</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- CMS Admin Dashboard Modal -->
+    <div id="admin-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full h-[92vh] sm:h-[90vh] flex flex-col overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
+            <div class="bg-slate-900 text-white p-3 sm:p-4 flex items-center justify-between border-b border-slate-800">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-sliders text-amber-400"></i>
+                    <h3 class="font-bold text-xs sm:text-base">Portal Admin CMS (Tersinkronisasi Firebase)</h3>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="saveAppStateToFirebase(true)" title="Simpan Permanen Ke Firebase Cloud" class="bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] sm:text-xs px-3 py-1.5 rounded font-bold flex items-center gap-1 shadow-md">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> <span>Simpan Ke Cloud</span>
+                    </button>
+                    <button onclick="closeAdminPortal()" class="text-slate-400 hover:text-white text-xl ml-1 p-1"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+            
+            <div class="bg-slate-100 border-b border-slate-200 px-2 sm:px-4 flex gap-1 sm:gap-2 overflow-x-auto whitespace-nowrap text-xs font-semibold custom-scrollbar">
+                <button onclick="switchAdminTab('general')" class="admin-tab-btn py-3 px-3 text-theme-primary border-b-2 border-theme-primary font-bold shrink-0" id="tab-btn-general">
+                    <i class="fa-solid fa-palette mr-1"></i> Tampilan & Warna
+                </button>
+                <button onclick="switchAdminTab('hero')" class="admin-tab-btn py-3 px-3 text-slate-600 hover:text-teal-700 shrink-0" id="tab-btn-hero">
+                    <i class="fa-solid fa-image mr-1"></i> Hero & Profil
+                </button>
+                <button onclick="switchAdminTab('edu')" class="admin-tab-btn py-3 px-3 text-slate-600 hover:text-teal-700 shrink-0" id="tab-btn-edu">
+                    <i class="fa-solid fa-school mr-1"></i> Pendidikan
+                </button>
+                <button onclick="switchAdminTab('prog')" class="admin-tab-btn py-3 px-3 text-slate-600 hover:text-teal-700 shrink-0" id="tab-btn-prog">
+                    <i class="fa-solid fa-list-check mr-1"></i> Program
+                </button>
+                <button onclick="switchAdminTab('news')" class="admin-tab-btn py-3 px-3 text-slate-600 hover:text-teal-700 shrink-0" id="tab-btn-news">
+                    <i class="fa-brands fa-wordpress mr-1"></i> Berita & WordPress
+                </button>
+                <button onclick="switchAdminTab('gal')" class="admin-tab-btn py-3 px-3 text-slate-600 hover:text-teal-700 shrink-0" id="tab-btn-gal">
+                    <i class="fa-solid fa-images mr-1"></i> Galeri
+                </button>
+                <button onclick="switchAdminTab('psb')" class="admin-tab-btn py-3 px-3 text-slate-600 hover:text-teal-700 shrink-0" id="tab-btn-psb">
+                    <i class="fa-solid fa-file-pdf mr-1"></i> Brosur PSB
+                </button>
+                <button onclick="switchAdminTab('submissions')" class="admin-tab-btn py-3 px-3 text-slate-600 hover:text-teal-700 shrink-0" id="tab-btn-submissions">
+                    <i class="fa-solid fa-users mr-1"></i> Pendaftar PSB
+                </button>
+            </div>
+            
+            <div class="p-6 overflow-y-auto custom-scrollbar flex-1 space-y-6 text-xs">
+                <!-- Tab 1: General Info -->
+                <div id="admin-tab-general" class="admin-tab-content space-y-4">
+                    <div class="bg-emerald-50 border border-emerald-300 p-3 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-3 text-emerald-900">
+                        <div>
+                            <h5 class="font-bold text-xs"><i class="fa-solid fa-cloud-arrow-up mr-1"></i> Proteksi Anti Reset</h5>
+                            <p class="text-[11px] text-emerald-800 mt-0.5">Tekan tombol 'Simpan Ke Cloud' agar data tersimpan permanen di Firebase & tidak ter-reset.</p>
+                        </div>
+                        <div class="flex gap-2 shrink-0">
+                            <button type="button" onclick="saveAppStateToFirebase(true)" class="bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] px-3 py-1.5 rounded font-bold whitespace-nowrap shadow-sm">
+                                <i class="fa-solid fa-save mr-1"></i> Simpan Permanen Cloud
+                            </button>
+                            <button type="button" onclick="exportBackupData()" class="bg-slate-800 hover:bg-slate-900 text-white text-[11px] px-3 py-1.5 rounded font-bold whitespace-nowrap">
+                                <i class="fa-solid fa-download mr-1"></i> Backup JSON
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-teal-50 border border-teal-200 p-4 rounded-xl space-y-3">
+                        <h4 class="font-bold text-teal-900 text-xs uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-palette text-teal-600"></i> Pengaturan Warna Utama & Jenis Font Website
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-semibold mb-1">Warna Utama Website</label>
+                                <div class="flex items-center gap-2">
+                                    <input type="color" id="input-theme-color" class="h-9 w-14 border rounded cursor-pointer p-0.5">
+                                    <span class="text-[11px] text-slate-500 font-mono" id="theme-color-hex">#006f79</span>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block font-semibold mb-1">Jenis Font Utama Website</label>
+                                <select id="input-theme-font" class="w-full border rounded px-3 py-2 bg-white">
+                                    <option value="'Plus Jakarta Sans', sans-serif">Plus Jakarta Sans (Modern Default)</option>
+                                    <option value="'Inter', sans-serif">Inter (Clean Academic)</option>
+                                    <option value="'Poppins', sans-serif">Poppins (Friendly)</option>
+                                    <option value="'Montserrat', sans-serif">Montserrat (Bold Header)</option>
+                                    <option value="'Roboto', sans-serif">Roboto (Classic Standard)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl space-y-3">
+                        <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wider flex items-center gap-1.5">
+                            <i class="fa-solid fa-key text-amber-600"></i> Ganti Kata Sandi Portal
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block font-semibold mb-1">Kata Sandi Lama</label>
+                                <input type="password" id="input-old-pass" placeholder="Kata Sandi Saat Ini" class="w-full border rounded px-3 py-2">
+                            </div>
+                            <div>
+                                <label class="block font-semibold mb-1">Kata Sandi Baru</label>
+                                <input type="password" id="input-new-pass" placeholder="Kata Sandi Baru (Min. 4 karakter)" class="w-full border rounded px-3 py-2">
+                            </div>
+                        </div>
+                        <button type="button" onclick="changeAdminPassword()" class="bg-slate-800 hover:bg-slate-900 text-white font-bold px-4 py-2 rounded text-xs">
+                            Simpan Kata Sandi Baru
+                        </button>
+                    </div>
+
+                    <h4 class="font-bold text-slate-800 text-sm border-b pb-2">Edit Brand Header, Logo, Kontak & Footer</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-semibold mb-1">Judul Brand Header</label>
+                            <input type="text" id="input-brand-title" class="w-full border rounded px-3 py-2">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Sub-judul Brand Header</label>
+                            <input type="text" id="input-brand-sub" class="w-full border rounded px-3 py-2">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Upload Custom Logo (PNG/JPG)</label>
+                            <input type="file" accept="image/*" onchange="handleLogoUpload(this)" class="w-full text-xs border p-1.5 rounded bg-white">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Nomor WhatsApp Panitia</label>
+                            <input type="text" id="input-contact-phone" class="w-full border rounded px-3 py-2">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Email Resmi</label>
+                            <input type="email" id="input-contact-email" class="w-full border rounded px-3 py-2">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block font-semibold mb-1">Alamat Pesantren</label>
+                            <input type="text" id="input-contact-address" class="w-full border rounded px-3 py-2">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block font-semibold mb-1">Deskripsi Ringkas Footer</label>
+                            <textarea id="input-footer-desc" rows="2" class="w-full border rounded px-3 py-2"></textarea>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block font-semibold mb-1">Teks Hak Cipta / Copyright Footer</label>
+                            <input type="text" id="input-footer-copyright" class="w-full border rounded px-3 py-2">
+                        </div>
+                    </div>
+                    <button type="button" onclick="saveGeneralSettings()" class="bg-theme-primary text-white font-bold px-4 py-2 rounded hover:opacity-90">Simpan Perubahan Ke Firebase Cloud</button>
+                </div>
+
+                <!-- Tab 2: Hero & Profil -->
+                <div id="admin-tab-hero" class="admin-tab-content space-y-4 hidden">
+                    <h4 class="font-bold text-slate-800 text-sm border-b pb-2">Edit Hero Banner & Profil Pesantren</h4>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block font-semibold mb-1">Judul Utama Hero Banner</label>
+                            <input type="text" id="input-hero-title" class="w-full border rounded px-3 py-2">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Sub-judul Hero Banner</label>
+                            <textarea id="input-hero-sub" rows="2" class="w-full border rounded px-3 py-2"></textarea>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Gambar Background Hero (URL / File Upload)</label>
+                            <div class="flex gap-2">
+                                <input type="text" id="input-hero-bg" class="w-full border rounded px-3 py-2" placeholder="URL Gambar / https://...">
+                                <label class="bg-slate-700 hover:bg-slate-800 text-white px-3 py-2 rounded font-bold cursor-pointer whitespace-nowrap">
+                                    Upload
+                                    <input type="file" accept="image/*" onchange="handleImageUpload(this, 'input-hero-bg')" class="hidden">
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Gambar Profil / Suasana Pesantren (URL / File Upload)</label>
+                            <div class="flex gap-2">
+                                <input type="text" id="input-intro-img" class="w-full border rounded px-3 py-2" placeholder="URL Gambar / https://...">
+                                <label class="bg-slate-700 hover:bg-slate-800 text-white px-3 py-2 rounded font-bold cursor-pointer whitespace-nowrap">
+                                    Upload
+                                    <input type="file" accept="image/*" onchange="handleImageUpload(this, 'input-intro-img')" class="hidden">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                            <div>
+                                <label class="block font-semibold mb-1">Teks Tentang Pesantren Paragraf 1</label>
+                                <textarea id="input-about-1" rows="3" class="w-full border rounded px-3 py-2"></textarea>
+                            </div>
+                            <div>
+                                <label class="block font-semibold mb-1">Teks Tentang Pesantren Paragraf 2</label>
+                                <textarea id="input-about-2" rows="3" class="w-full border rounded px-3 py-2"></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Teks Visi Pesantren</label>
+                            <textarea id="input-vision" rows="2" class="w-full border rounded px-3 py-2"></textarea>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Teks Misi Pesantren</label>
+                            <textarea id="input-mission" rows="3" class="w-full border rounded px-3 py-2"></textarea>
+                        </div>
+                    </div>
+                    <button type="button" onclick="saveHeroSettings()" class="bg-theme-primary text-white font-bold px-4 py-2 rounded hover:opacity-90">Simpan Hero & Profil Ke Firebase</button>
+                </div>
+
+                <!-- Tab 3: Unit Pendidikan -->
+                <div id="admin-tab-edu" class="admin-tab-content space-y-4 hidden">
+                    <div class="flex items-center justify-between border-b pb-2">
+                        <h4 class="font-bold text-slate-800 text-sm">Kelola Unit Pendidikan</h4>
+                        <button type="button" onclick="openEduModal()" class="bg-theme-primary text-white px-3 py-1.5 rounded font-bold">+ Tambah Unit</button>
+                    </div>
+                    <div id="admin-edu-list" class="space-y-2"></div>
+                </div>
+
+                <!-- Tab 4: Program Unggulan -->
+                <div id="admin-tab-prog" class="admin-tab-content space-y-4 hidden">
+                    <div class="flex items-center justify-between border-b pb-2">
+                        <h4 class="font-bold text-slate-800 text-sm">Kelola Program Unggulan</h4>
+                        <button type="button" onclick="openProgModal()" class="bg-theme-primary text-white px-3 py-1.5 rounded font-bold">+ Tambah Program</button>
+                    </div>
+                    <div id="admin-prog-list" class="space-y-2"></div>
+                </div>
+
+                <!-- Tab 5: Berita & WordPress REST API -->
+                <div id="admin-tab-news" class="admin-tab-content space-y-4 hidden">
+                    <div class="bg-emerald-900 text-white p-4 rounded-xl space-y-3">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-brands fa-wordpress text-2xl text-amber-400"></i>
+                                <div>
+                                    <h5 class="font-bold text-sm">Integrasi WordPress REST API CMS</h5>
+                                    <p class="text-[11px] text-emerald-200">Hubungkan berita langsung dari situs WordPress Anda.</p>
+                                </div>
+                            </div>
+                            <button type="button" onclick="syncWordPressPosts()" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-extrabold px-4 py-2 rounded-lg text-xs shadow-md transition-all flex items-center gap-1.5">
+                                <i class="fa-solid fa-rotate"></i> Sinkronkan Sekarang
+                            </button>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1 text-emerald-100">URL Situs WordPress Anda (Domain / Link Posting)</label>
+                            <input type="text" id="input-blogspot-url" placeholder="https://hidayatullahpanceng.wordpress.com" class="w-full border border-emerald-700 bg-emerald-950 text-white rounded px-3 py-2 text-xs focus:ring-2 focus:ring-amber-400 focus:outline-none">
+                            <p class="text-[10px] text-emerald-300 mt-1">*Pastikan privasi situs WordPress diatur ke Public (Publik) di Pengaturan WordPress Anda.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between border-b pb-2 pt-2">
+                        <h4 class="font-bold text-slate-800 text-sm">Daftar Berita (Manual & WP Sync)</h4>
+                        <button type="button" onclick="openNewsModal()" class="bg-theme-primary text-white px-3 py-1.5 rounded font-bold">+ Tambah Berita Manual</button>
+                    </div>
+                    <div id="admin-news-list" class="space-y-2"></div>
+                </div>
+
+                <!-- Tab 6: Galeri Foto -->
+                <div id="admin-tab-gal" class="admin-tab-content space-y-4 hidden">
+                    <div class="flex items-center justify-between border-b pb-2">
+                        <h4 class="font-bold text-slate-800 text-sm">Kelola Galeri Foto</h4>
+                        <button type="button" onclick="openGalModal()" class="bg-theme-primary text-white px-3 py-1.5 rounded font-bold">+ Tambah Foto Galeri</button>
+                    </div>
+                    <div id="admin-gal-list" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div>
+                </div>
+
+                <!-- Tab 7: Brosur PSB -->
+                <div id="admin-tab-psb" class="admin-tab-content space-y-4 hidden">
+                    <h4 class="font-bold text-slate-800 text-sm border-b pb-2">Brosur & Dokumen Pendaftaran</h4>
+                    <div>
+                        <label class="block font-semibold mb-1">File Brosur PSB (Upload PDF / DOC / JPG)</label>
+                        <input type="file" accept=".pdf,.doc,.docx,image/*" onchange="handleBrochureFileUpload(this)" class="w-full border p-2 rounded text-xs bg-white">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Atau URL Brosur Gambar Online</label>
+                        <input type="text" id="input-brochure-url" class="w-full border rounded px-3 py-2">
+                    </div>
+                    <button type="button" onclick="saveBrochureSettings()" class="bg-theme-primary text-white font-bold px-4 py-2 rounded hover:opacity-90">Simpan Pengaturan Brosur</button>
+                </div>
+
+                <!-- Tab 8: Pendaftar PSB -->
+                <div id="admin-tab-submissions" class="admin-tab-content space-y-4 hidden">
+                    <h4 class="font-bold text-slate-800 text-sm border-b pb-2">Daftar Calon Santri Mendaftar Online (Firestore Database)</h4>
+                    <div id="admin-submissions-list" class="space-y-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="crud-edu-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative" onclick="event.stopPropagation()">
+            <button onclick="closeEduModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+            <h3 id="edu-modal-title" class="font-bold text-slate-900 text-base mb-4">Tambah Unit Pendidikan</h3>
+            <form onsubmit="handleSaveEdu(event)" class="space-y-3 text-xs">
+                <input type="hidden" id="edit-edu-id">
+                <div><label class="block font-semibold mb-1">Nama Unit *</label><input type="text" id="edu-name-input" required placeholder="Contoh: MA / SMA Pesantren" class="w-full border rounded px-3 py-2"></div>
+                <div><label class="block font-semibold mb-1">Tag / Category *</label><input type="text" id="edu-tag-input" required placeholder="Contoh: Boarding" class="w-full border rounded px-3 py-2"></div>
+                <div><label class="block font-semibold mb-1">Icon FontAwesome Class</label><input type="text" id="edu-icon-input" placeholder="fa-school" class="w-full border rounded px-3 py-2"></div>
+                <div>
+                    <label class="block font-semibold mb-1">Atau Upload Gambar Icon Custom (File / URL)</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="edu-custom-img-input" placeholder="https://..." class="w-full border rounded px-3 py-2">
+                        <label class="bg-slate-700 text-white px-3 py-2 rounded font-bold cursor-pointer whitespace-nowrap">Upload<input type="file" accept="image/*" onchange="handleImageUpload(this, 'edu-custom-img-input')" class="hidden"></label>
+                    </div>
+                </div>
+                <div><label class="block font-semibold mb-1">Deskripsi Unit *</label><textarea id="edu-desc-input" required rows="3" placeholder="Penjelasan singkat..." class="w-full border rounded px-3 py-2"></textarea></div>
+                <button type="submit" class="w-full bg-theme-primary text-white font-bold py-2.5 rounded-lg hover:opacity-90">Simpan Unit Pendidikan</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Program Unggulan -->
+    <div id="crud-prog-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative" onclick="event.stopPropagation()">
+            <button onclick="closeProgModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+            <h3 id="prog-modal-title" class="font-bold text-slate-900 text-base mb-4">Tambah Program Unggulan</h3>
+            <form onsubmit="handleSaveProg(event)" class="space-y-3 text-xs">
+                <input type="hidden" id="edit-prog-id">
+                <div><label class="block font-semibold mb-1">Nama Program *</label><input type="text" id="prog-title-input" required placeholder="Contoh: Tahfizh Mutqin 30 Juz" class="w-full border rounded px-3 py-2"></div>
+                <div><label class="block font-semibold mb-1">Icon FontAwesome Class</label><input type="text" id="prog-icon-input" placeholder="fa-brain" class="w-full border rounded px-3 py-2"></div>
+                <div>
+                    <label class="block font-semibold mb-1">Upload File Gambar/Icon Custom (PNG/JPG/SVG)</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="prog-custom-img-input" placeholder="URL Gambar / Teks Data File" class="w-full border rounded px-3 py-2">
+                        <label class="bg-slate-700 hover:bg-slate-800 text-white px-3 py-2 rounded font-bold cursor-pointer whitespace-nowrap">
+                            Pilih File
+                            <input type="file" accept="image/*" onchange="handleImageUpload(this, 'prog-custom-img-input')" class="hidden">
+                        </label>
+                    </div>
+                </div>
+                <div><label class="block font-semibold mb-1">Deskripsi Program *</label><textarea id="prog-desc-input" required rows="3" placeholder="Penjelasan..." class="w-full border rounded px-3 py-2"></textarea></div>
+                <button type="submit" class="w-full bg-theme-primary text-white font-bold py-2.5 rounded-lg hover:opacity-90">Simpan Program</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="crud-news-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative" onclick="event.stopPropagation()">
+            <button onclick="closeNewsModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+            <h3 id="news-modal-admin-title" class="font-bold text-slate-900 text-base mb-4">Tambah Berita Baru</h3>
+            <form onsubmit="handleSaveNews(event)" class="space-y-3 text-xs">
+                <input type="hidden" id="edit-news-id">
+                <div><label class="block font-semibold mb-1">Judul Berita *</label><input type="text" id="news-title-input" required placeholder="Judul artikel berita" class="w-full border rounded px-3 py-2"></div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div><label class="block font-semibold mb-1">Kategori *</label><input type="text" id="news-cat-input" required placeholder="Kegiatan / Pengumuman" class="w-full border rounded px-3 py-2"></div>
+                    <div><label class="block font-semibold mb-1">Tanggal *</label><input type="text" id="news-date-input" required placeholder="18 Agustus 2026" class="w-full border rounded px-3 py-2"></div>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Gambar Berita (URL / Upload)</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="news-img-input" placeholder="https://..." class="w-full border rounded px-3 py-2">
+                        <label class="bg-slate-700 text-white px-3 py-2 rounded font-bold cursor-pointer whitespace-nowrap">Upload<input type="file" accept="image/*" onchange="handleImageUpload(this, 'news-img-input')" class="hidden"></label>
+                    </div>
+                </div>
+                <div><label class="block font-semibold mb-1">Ringkasan Berita *</label><textarea id="news-summary-input" required rows="2" placeholder="Ringkasan..." class="w-full border rounded px-3 py-2"></textarea></div>
+                <div><label class="block font-semibold mb-1">Isi Artikel Lengkap</label><textarea id="news-content-input" rows="4" placeholder="Konten artikel..." class="w-full border rounded px-3 py-2"></textarea></div>
+                <button type="submit" class="w-full bg-theme-primary text-white font-bold py-2.5 rounded-lg hover:opacity-90">Simpan Berita</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Galeri Foto -->
+    <div id="crud-gal-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative" onclick="event.stopPropagation()">
+            <button onclick="closeGalModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+            <h3 id="gal-modal-title" class="font-bold text-slate-900 text-base mb-4">Tambah Foto Galeri</h3>
+            <form onsubmit="handleSaveGal(event)" class="space-y-3 text-xs">
+                <input type="hidden" id="edit-gal-id">
+                <div><label class="block font-semibold mb-1">Judul Foto *</label><input type="text" id="gal-title-input" required placeholder="Contoh: Shalat Berjamaah" class="w-full border rounded px-3 py-2"></div>
+                <div>
+                    <label class="block font-semibold mb-1">Subkategori Galeri *</label>
+                    <select id="gal-cat-input" required class="w-full border rounded px-3 py-2">
+                        <option value="pendidikan">Pendidikan</option>
+                        <option value="tahfidz">Tahfidz</option>
+                        <option value="ekstrakurikuler">Ekstrakurikuler</option>
+                        <option value="kegiatan_santri">Kegiatan Santri</option>
+                        <option value="prestasi">Prestasi</option>
+                        <option value="kegiatan_pondok">Kegiatan Pondok</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">File Foto (URL / Upload *)</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="gal-img-input" placeholder="https://..." class="w-full border rounded px-3 py-2">
+                        <label class="bg-slate-700 text-white px-3 py-2 rounded font-bold cursor-pointer whitespace-nowrap">Upload<input type="file" accept="image/*" onchange="handleImageUpload(this, 'gal-img-input')" class="hidden"></label>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-theme-primary text-white font-bold py-2.5 rounded-lg hover:opacity-90">Simpan Foto Galeri</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- PSB Registration Modal -->
+    <div id="psb-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4">
+        <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] flex flex-col overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
+            <div class="bg-theme-primary text-white p-5 flex items-center justify-between">
+                <div>
+                    <h3 class="font-extrabold text-lg sm:text-xl">Penerimaan Santri Baru (PSB)</h3>
+                    <p class="text-xs text-slate-100">T.A. 2027/2028 | SMA Pesantren Hidayatullah Panceng</p>
+                </div>
+                <button onclick="closePsbModal()" class="text-white hover:text-amber-300 text-2xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-6 overflow-y-auto custom-scrollbar space-y-6 text-slate-700">
+                <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-amber-500 text-white rounded-xl flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-file-pdf"></i></div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Brosur Pendaftaran Santri Hidayatullah Panceng</h4>
+                            <p class="text-xs text-slate-600">Unduh atau lihat brosur resmi pendaftaran T.A. 2027/2028.</p>
+                        </div>
+                    </div>
+                    <a id="psb-brochure-link" href="#" target="_blank" class="w-full sm:w-auto bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg text-center whitespace-nowrap">
+                        <i class="fa-solid fa-download mr-1"></i> Lihat / Unduh Brosur
+                    </a>
+                </div>
+                <form onsubmit="handlePsbSubmit(event)" class="space-y-4">
+                    <h4 class="font-bold text-slate-900 text-sm border-b pb-2">Formulir Pendaftaran Calon Santri</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                        <div>
+                            <label class="block font-semibold mb-1">Nama Lengkap Santri *</label>
+                            <input type="text" id="psb-name" required placeholder="Nama lengkap" class="w-full border rounded-lg px-3 py-2">
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Jenis Kelamin *</label>
+                            <select id="psb-gender" required class="w-full border rounded-lg px-3 py-2 bg-slate-50 cursor-not-allowed">
+                                <option value="Laki-laki" selected>Laki-laki</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Pilihan Jenjang *</label>
+                            <select id="psb-unit" required class="w-full border rounded-lg px-3 py-2 bg-slate-50">
+                                <option value="SMA / Sederajat (Tahfidz dan Boarding)" selected>SMA / Sederajat (Tahfidz dan Boarding)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-semibold mb-1">Nomor WhatsApp Orang Tua *</label>
+                            <input type="tel" id="psb-phone" required placeholder="08xxxxxxxxxx" class="w-full border rounded-lg px-3 py-2">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block font-semibold mb-1">Alamat Asal / Kota *</label>
+                            <textarea id="psb-address" required rows="2" placeholder="Alamat lengkap" class="w-full border rounded-lg px-3 py-2"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full bg-theme-primary text-white font-bold py-3 rounded-xl shadow-md text-xs hover:opacity-90">Kirim Pendaftaran Online</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Reader Modal -->
+    <div id="news-detail-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4">
+        <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[92vh] flex flex-col overflow-hidden shadow-2xl relative" onclick="event.stopPropagation()">
+            <div class="bg-slate-900 text-white px-6 py-4 flex items-center justify-between border-b border-slate-800">
+                <div class="flex items-center gap-2">
+                    <span id="news-modal-cat" class="text-[11px] font-bold bg-amber-500 text-slate-900 px-2.5 py-0.5 rounded uppercase tracking-wider">Kategori</span>
+                    <span class="text-xs text-slate-400">| Rilis Berita Pesantren</span>
+                </div>
+                <button onclick="closeNewsDetailModal()" class="text-slate-400 hover:text-white text-2xl transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-6 sm:p-8 overflow-y-auto custom-scrollbar space-y-6">
+                <div class="space-y-3">
+                    <h3 id="news-modal-title" class="text-xl sm:text-2xl font-extrabold text-slate-900 leading-snug"></h3>
+                    <div class="flex items-center gap-4 text-xs text-slate-500 font-medium border-b border-slate-100 pb-4">
+                        <span><i class="fa-regular fa-calendar text-teal-700 mr-1.5"></i><span id="news-modal-date"></span></span>
+                        <span><i class="fa-solid fa-building-columns text-teal-700 mr-1.5"></i>Pondok Pesantren Hidayatullah</span>
+                    </div>
+                </div>
+                <div id="news-modal-img-container" class="rounded-xl overflow-hidden bg-slate-100 border border-slate-200">
+                    <img id="news-modal-img" src="" alt="Gambar Berita" class="w-full h-64 sm:h-80 object-cover">
+                </div>
+                <div id="news-modal-content" class="text-sm sm:text-base text-slate-700 leading-relaxed space-y-4 border-t border-slate-100 pt-4"></div>
+                <div class="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs">
+                    <span class="font-bold text-slate-800"><i class="fa-solid fa-share-nodes text-teal-700 mr-1.5"></i>Bagikan Berita Ini:</span>
+                    <div class="flex items-center gap-2">
+                        <button onclick="shareArticle('wa')" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1.5 rounded-lg font-bold flex items-center gap-1.5"><i class="fa-brands fa-whatsapp"></i> WhatsApp</button>
+                        <button onclick="shareArticle('fb')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg font-bold flex items-center gap-1.5"><i class="fa-brands fa-facebook"></i> Facebook</button>
+                        <button onclick="shareArticle('copy')" class="bg-slate-700 hover:bg-slate-800 text-white px-3 py-1.5 rounded-lg font-bold flex items-center gap-1.5"><i class="fa-solid fa-copy"></i> Salin Link</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox & Toast -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 hidden flex items-center justify-center p-4" onclick="closeLightbox()">
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-3xl"><i class="fa-solid fa-xmark"></i></button>
+        <img id="lightbox-img" src="" alt="Foto Galeri" class="max-w-full max-h-[85vh] rounded-lg shadow-2xl object-contain">
+    </div>
+
+    <div id="toast" class="fixed top-5 right-5 z-50 bg-slate-900 text-white text-xs px-4 py-3 rounded-xl shadow-2xl transform translate-x-72 transition-transform duration-300 flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+        <div>
+            <h5 id="toast-title" class="font-bold">Berhasil!</h5>
+            <p id="toast-desc" class="text-[11px] text-slate-300">Data telah diperbarui.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript Integration -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { 
+            getFirestore, 
+            collection, 
+            addDoc, 
+            getDocs, 
+            doc, 
+            setDoc, 
+            getDoc, 
+            deleteDoc, 
+            query, 
+            orderBy, 
+            serverTimestamp 
+        } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        // Placeholders SVG lokal ringan (Mencegah Unsplash dimuat)
+        const SVG_PLACEHOLDER = "data:image/svg+xml;charset=UTF-8,%3Csvg width='800' height='600' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23cbd5e1'/%3E%3C/svg%3E";
+        const DEFAULT_NEWS_FALLBACK_IMG = SVG_PLACEHOLDER;
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyB3hir33o4yrhv2thCgoXqsYG27yd9t40w",
+            authDomain: "hidayatullah-panceng.firebaseapp.com",
+            projectId: "hidayatullah-panceng",
+            storageBucket: "hidayatullah-panceng.firebasestorage.app",
+            messagingSenderId: "288073011327",
+            appId: "1:288073011327:web:f066a3dbb133067301af4a"
+        };
+
+        let db = null;
+        try {
+            const app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+        } catch(e) {
+            console.warn("Firebase Offline Mode");
+        }
+
+        const STORAGE_KEY = 'ponpes_hidayatullah_cms_v13';
+
+        async function hashPassword(str) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(str);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        function getValidImageUrl(url, fallbackUrl = DEFAULT_NEWS_FALLBACK_IMG) {
+            if (!url || typeof url !== 'string') return fallbackUrl;
+            const trimmed = url.trim();
+            if (trimmed.startsWith('http://') || trimmed.startsWith('https://') || trimmed.startsWith('data:image')) {
+                return trimmed;
+            }
+            return fallbackUrl;
+        }
+
+        const AppState = {
+            isUserModified: false,
+            adminPassHash: "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+            
+            themeColor: "#006f79",
+            themeFont: "'Plus Jakarta Sans', sans-serif",
+            brandTitle: "HIDAYATULLAH PANCENG",
+            brandSub: "Pondok Pesantren Gresik",
+            logoIcon: "fa-mosque",
+            customLogoUrl: "",
+            contactPhone: "081915601880",
+            contactEmail: "info@hidayatullahpanceng.sch.id",
+            contactAddress: "Kecamatan Panceng, Kabupaten Gresik, Jawa Timur",
+            mapsUrl: "https://maps.app.goo.gl/EWNQAWuoZBREkEHs6",
+            blogspotUrl: "https://hidayatullahpanceng.wordpress.com",
+            brochureUrl: SVG_PLACEHOLDER,
+            
+            heroTitle: "Melahirkan <span class='text-amber-400 italic'>Huffazh</span> Pemimpin Berbasis Tauhid",
+            heroSub: "Lembaga pendidikan Islam terpadu yang memadukan keilmuan syar'i, pembentukan akhlak karimah, kepemimpinan, dan kecakapan masa depan di Panceng, Gresik.",
+            heroBgImg: SVG_PLACEHOLDER,
+            introImg: SVG_PLACEHOLDER,
+            aboutText1: "Pondok Pesantren Hidayatullah Panceng didirikan sebagai wujud komitmen nyata dalam membina generasi muda Islam di wilayah Panceng, Gresik. Kami menghadirkan ekosistem pendidikan yang seimbang antara al-Ulum asy-Syar'iyyah, ilmu sains modern, serta kecakapan hidup.",
+            aboutText2: "Melalui lingkungan bertradisi Islami yang asri dan kondusif, setiap santri dibimbing untuk menjadi pribadi yang teguh dalam aqidah, tertib dalam ibadah, anggun dalam akhlak, serta unggul dalam prestasi akademik.",
+            visionText: `"Menjadi Pesantren Unggul dalam Mencetak Generasi Qur'ani, Berilmu, Berkarakter, dan Berdaya Saing."`,
+            missionText: "Menyelenggarakan pendidikan Islam terpadu berlandaskan Al-Qur'an dan As-Sunnah.\nMembina aqidah yang lurus, ibadah yang tertib, dan akhlakul karimah.\nMengembangkan kepemimpinan, kemandirian, dan kewirausahaan santri.",
+            footerDesc: "Alamat: Kec. Panceng, Kab. Gresik, Jawa Timur. Lembaga pendidikan Islam yang konsisten mencetak santri berkarakter Qur'ani, unggul, dan mandiri.",
+            footerCopyright: "© 2026 Pondok Pesantren Hidayatullah Panceng. All Rights Reserved.",
+            eduUnits: [
+                { id: 1, name: "RA / TK Islam", tag: "Usia Dini", icon: "fa-shapes", customImg: "", desc: "Mengenalkan nilai-nilai Islam, doa harian, adab sopan santun, serta pembentukan karakter positif sejak dini." },
+                { id: 2, name: "MI / SD Islam Terpadu", tag: "Dasar", icon: "fa-school", customImg: "", desc: "Memadukan pelajaran umum dan pesantren. Menekankan baca Al-Qur'an tartil, shalat, dan matematika dasar." },
+                { id: 3, name: "MTs / SMP Pesantren", tag: "Boarding", icon: "fa-book-open-reader", customImg: "", desc: "Pendidikan berasrama (boarding system) menempa kemandirian santri, hafalan Al-Qur'an, dan Bahasa Arab." },
+                { id: 4, name: "MA / SMA Pesantren", tag: "Boarding", icon: "fa-user-graduate", customImg: "", desc: "Mempersiapkan santri menuju perguruan tinggi PTN/PTS/Timteng dengan integritas ulum syar'i & sains." },
+                { id: 5, name: "Takhassus Tahfizh 30 Juz", tag: "Program Khusus", icon: "fa-quran", customImg: "", desc: "Karantina hafalan Al-Qur'an intensif bagi santri yang berfokus menyelesaikan setoran 30 Juz mutqin." }
+            ],
+            programs: [
+                { id: 1, title: "Tahfizh Mutqin 30 Juz", icon: "fa-brain", customImg: "", desc: "Bimbingan tasmi' dan muraja'ah harian dibimbing oleh para huffazh Al-Qur'an teruji." },
+                { id: 2, title: "Bilingual Area (Arab & Inggris)", icon: "fa-language", customImg: "", desc: "Pengkondisian muhadatsah harian dan pidato publik dua bahasa internasional." },
+                { id: 3, title: "Khitabah & Public Speaking", icon: "fa-bullhorn", customImg: "", desc: "Latihan ceramah, seni retorika dakwah, dan keorganisasian santri." },
+                { id: 4, title: "Literasi Digital & Komputer", icon: "fa-laptop-code", customImg: "", desc: "Pelatihan komputer dasar, desain grafis dakwah, dan penggunaan teknologi islami." },
+                { id: 5, title: "Kepanduan Hidayatullah", icon: "fa-campground", customImg: "", desc: "Kegiatan alam terbuka, ketangkasan, pertolongan pertama, dan kedisiplinan." },
+                { id: 6, title: "Kewirausahaan Santri", icon: "fa-seedling", customImg: "", desc: "Pengenalan bisnis syariah, ekonomi santri mandiri, dan etos kerja produktif." }
+            ],
+            gallery: [],
+            news: []
+        };
+
+        function safeText(id, val) {
+            const el = document.getElementById(id);
+            if (el) el.innerText = val || '';
+        }
+
+        function safeHTML(id, val) {
+            const el = document.getElementById(id);
+            if (el) el.innerHTML = val || '';
+        }
+
+        function safeAttr(id, attr, val) {
+            const el = document.getElementById(id);
+            if (el) el.setAttribute(attr, val || '');
+        }
+
+        function safeValue(id, val) {
+            const el = document.getElementById(id);
+            if (el) el.value = val || '';
+        }
+
+        function applyDynamicTheme() {
+            document.documentElement.style.setProperty('--primary-color', AppState.themeColor || '#006f79');
+            document.documentElement.style.setProperty('--font-family', AppState.themeFont || "'Plus Jakarta Sans', sans-serif");
+            safeText('theme-color-hex', AppState.themeColor || '#006f79');
+        }
+
+        function showToast(title, desc) {
+            safeText('toast-title', title);
+            safeText('toast-desc', desc);
+            const toast = document.getElementById('toast');
+            if (toast) {
+                toast.classList.remove('translate-x-72');
+                setTimeout(() => { toast.classList.add('translate-x-72'); }, 3000);
+            }
+        }
+
+        window.saveAppStateToFirebase = async function(manualTrigger = false) {
+            AppState.isUserModified = true;
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(AppState));
+                renderDynamicElements();
+                
+                if (db) {
+                    await setDoc(doc(db, "website_settings", "general_config"), AppState);
+                    showToast('Sukses Disimpan!', 'Perubahan telah disimpan ke Firebase Cloud!');
+                } else {
+                    showToast('Tersimpan Lokal', 'Sistem offline, tersimpan di perangkat ini.');
+                }
+            } catch (err) {
+                console.warn("Detail gagal menyimpan cloud:", err);
+                renderDynamicElements();
+                showToast('Tersimpan di Browser', 'Perubahan aman di browser Anda.');
+            }
+        };
+
+        async function loadAppStateFromFirebase() {
+            let hasLocalData = false;
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (stored) {
+                try {
+                    const parsed = JSON.parse(stored);
+                    Object.assign(AppState, parsed);
+                    hasLocalData = true;
+                } catch(e) {
+                    console.error("Gagal membaca storage lokal:", e);
+                }
+            }
+            renderDynamicElements();
+
+            if (db) {
+                try {
+                    const docRef = doc(db, "website_settings", "general_config");
+                    const docSnap = await getDoc(docRef);
+                    if (docSnap.exists()) {
+                        const cloudData = docSnap.data();
+                        if (!hasLocalData || cloudData.isUserModified) {
+                            Object.assign(AppState, cloudData);
+                            localStorage.setItem(STORAGE_KEY, JSON.stringify(AppState));
+                            renderDynamicElements();
+                        }
+                    } else if (hasLocalData) {
+                        await setDoc(docRef, AppState);
+                    }
+                } catch (err) {
+                    console.warn("Menggunakan data lokal browser:", err);
+                }
+            }
+        }
+
+        function compressAndResizeImage(file, maxWidth = 800, quality = 0.6) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        let width = img.width;
+                        let height = img.height;
+                        if (width > maxWidth) {
+                            height = Math.round((height * maxWidth) / width);
+                            width = maxWidth;
+                        }
+                        canvas.width = width;
+                        canvas.height = height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+                        const compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
+                        resolve(compressedDataUrl);
+                    };
+                    img.onerror = reject;
+                    img.src = event.target.result;
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        window.saveHeroSettings = function() {
+            const hTitle = document.getElementById('input-hero-title');
+            const hSub = document.getElementById('input-hero-sub');
+            const hBg = document.getElementById('input-hero-bg');
+            const iImg = document.getElementById('input-intro-img');
+            const a1 = document.getElementById('input-about-1');
+            const a2 = document.getElementById('input-about-2');
+            const vText = document.getElementById('input-vision');
+            const mText = document.getElementById('input-mission');
+
+            if (hTitle) AppState.heroTitle = hTitle.value;
+            if (hSub) AppState.heroSub = hSub.value;
+            if (hBg && hBg.value.trim() !== '') AppState.heroBgImg = hBg.value.trim();
+            if (iImg && iImg.value.trim() !== '') AppState.introImg = iImg.value.trim();
+            if (a1) AppState.aboutText1 = a1.value;
+            if (a2) AppState.aboutText2 = a2.value;
+            if (vText) AppState.visionText = vText.value;
+            if (mText) AppState.missionText = mText.value;
+
+            window.saveAppStateToFirebase(true);
+        };
+
+        window.saveGeneralSettings = function() {
+            AppState.themeColor = document.getElementById('input-theme-color').value;
+            AppState.themeFont = document.getElementById('input-theme-font').value;
+            AppState.brandTitle = document.getElementById('input-brand-title').value;
+            AppState.brandSub = document.getElementById('input-brand-sub').value;
+            AppState.contactPhone = document.getElementById('input-contact-phone').value;
+            AppState.contactEmail = document.getElementById('input-contact-email').value;
+            AppState.contactAddress = document.getElementById('input-contact-address').value;
+            
+            if (document.getElementById('input-footer-desc')) {
+                AppState.footerDesc = document.getElementById('input-footer-desc').value;
+            }
+            if (document.getElementById('input-footer-copyright')) {
+                AppState.footerCopyright = document.getElementById('input-footer-copyright').value;
+            }
+            
+            window.saveAppStateToFirebase(true);
+        };
+
+        window.saveBrochureSettings = function() {
+            AppState.brochureUrl = document.getElementById('input-brochure-url').value;
+            window.saveAppStateToFirebase(true);
+        };
+
+        window.exportBackupData = function() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(AppState, null, 2));
+            const dlAnchor = document.createElement('a');
+            dlAnchor.setAttribute("href", dataStr);
+            dlAnchor.setAttribute("download", `hidayatullah_panceng_backup_${new Date().toISOString().slice(0,10)}.json`);
+            document.body.appendChild(dlAnchor);
+            dlAnchor.click();
+            dlAnchor.remove();
+            showToast('Backup Diunduh!', 'File JSON cadangan berhasil diunduh.');
+        };
+
+        window.importBackupData = function(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        const imported = JSON.parse(e.target.result);
+                        Object.assign(AppState, imported);
+                        window.saveAppStateToFirebase(true);
+                        renderAdminData();
+                        showToast('Restore Berhasil!', 'Data website diperbarui.');
+                    } catch (err) {
+                        showToast('File Gagal', 'Format file backup JSON tidak valid.');
+                    }
+                };
+                reader.readAsText(input.files[0]);
+            }
+        };
+
+        window.syncWordPressPosts = async function() {
+            let rawUrl = document.getElementById('input-blogspot-url').value.trim();
+            if (!rawUrl) rawUrl = AppState.blogspotUrl;
+            
+            showToast('Menghubungkan...', 'Sedang menarik berita dari WordPress...');
+            try {
+                const cleanInput = rawUrl.startsWith('http') ? rawUrl : 'https://' + rawUrl;
+                const urlObj = new URL(cleanInput);
+                const host = urlObj.hostname;
+                
+                const targetEndpoints = [
+                    `https://public-api.wordpress.com/wp/v2/sites/${host}/posts?_embed=true`,
+                    `https://${host}/wp-json/wp/v2/posts?_embed=true`,
+                    `https://api.allorigins.win/get?url=${encodeURIComponent(`https://public-api.wordpress.com/wp/v2/sites/${host}/posts?_embed=true`)}`
+                ];
+                
+                let posts = null;
+                for (const url of targetEndpoints) {
+                    try {
+                        let res = await fetch(url);
+                        if (res.ok) {
+                            let data = await res.json();
+                            if (data.contents) data = JSON.parse(data.contents);
+                            if (Array.isArray(data) && data.length > 0) {
+                                posts = data;
+                                break;
+                            }
+                        }
+                    } catch (e) {
+                        console.warn("Retrying fetch...", e);
+                    }
+                }
+                
+                if (posts && Array.isArray(posts) && posts.length > 0) {
+                    const fetchedNews = posts.map(p => {
+                        let featuredImg = "";
+                        if (p._embedded && p._embedded['wp:featuredmedia'] && p._embedded['wp:featuredmedia'][0]) {
+                            featuredImg = p._embedded['wp:featuredmedia'][0].source_url || "";
+                        } else if (p.jetpack_featured_media_url) {
+                            featuredImg = p.jetpack_featured_media_url;
+                        }
+                        
+                        const postDate = p.date ? new Date(p.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Terbaru';
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = p.excerpt ? p.excerpt.rendered : p.content.rendered;
+                        const plainText = tempDiv.textContent || tempDiv.innerText || '';
+                        
+                        return {
+                            id: p.id,
+                            title: p.title ? p.title.rendered : 'Berita Pesantren',
+                            date: postDate,
+                            cat: 'Kegiatan',
+                            summary: plainText.substring(0, 130) + '...',
+                            content: p.content ? p.content.rendered : plainText,
+                            img: featuredImg,
+                            link: p.link || '#'
+                        };
+                    });
+                    
+                    AppState.news = fetchedNews;
+                    AppState.blogspotUrl = `https://${host}`;
+                    window.saveAppStateToFirebase(true);
+                    renderAdminData();
+                    showToast('Sinkronisasi Berhasil!', `${fetchedNews.length} berita tersimpan.`);
+                } else {
+                    showToast('WP Belum Terkoneksi', 'Situs WordPress belum diatur ke Public.');
+                }
+            } catch (err) {
+                console.error(err);
+                showToast('Koneksi Gagal', 'Gagal terhubung ke WordPress API.');
+            }
+        };
+
+        function renderDynamicElements() {
+            applyDynamicTheme();
+            safeText('brand-title', AppState.brandTitle);
+            safeText('brand-sub', AppState.brandSub);
+            
+            const logoContainer = document.getElementById('brand-logo-container');
+            if (logoContainer) {
+                if (AppState.customLogoUrl) {
+                    logoContainer.innerHTML = `<img src="${AppState.customLogoUrl}" alt="Logo Pesantren" class="h-10 w-auto max-w-[180px] object-contain bg-transparent">`;
+                } else {
+                    logoContainer.innerHTML = `<i id="brand-logo-icon" class="fa-solid ${AppState.logoIcon} text-3xl"></i>`;
+                }
+            }
+            
+            let cleanFooterTitle = AppState.brandTitle.trim();
+            cleanFooterTitle = cleanFooterTitle.replace(/(Pondok Pesantren\s*)+/gi, 'Pondok Pesantren ');
+            if (!/^pondok pesantren/i.test(cleanFooterTitle) && !/^ponpes/i.test(cleanFooterTitle)) {
+                cleanFooterTitle = `Pondok Pesantren ${cleanFooterTitle}`;
+            }
+            safeText('footer-title', cleanFooterTitle);
+            
+            const footerLogoContainer = document.getElementById('footer-logo-container');
+            if (footerLogoContainer) {
+                if (AppState.customLogoUrl) {
+                    footerLogoContainer.innerHTML = `<img src="${AppState.customLogoUrl}" alt="Logo Pesantren" class="h-8 w-auto max-w-[140px] object-contain bg-transparent">`;
+                } else {
+                    footerLogoContainer.innerHTML = `<i class="fa-solid ${AppState.logoIcon} text-2xl text-amber-400"></i>`;
+                }
+            }
+            
+            safeHTML('hero-title', AppState.heroTitle);
+            safeText('hero-sub', AppState.heroSub);
+            safeAttr('hero-bg-img', 'src', getValidImageUrl(AppState.heroBgImg));
+            
+            const introImgEl = document.getElementById('intro-img');
+            if (introImgEl) {
+                introImgEl.src = getValidImageUrl(AppState.introImg);
+                introImgEl.onerror = () => {
+                    introImgEl.src = DEFAULT_NEWS_FALLBACK_IMG;
+                };
+            }
+            
+            safeText('about-text-1', AppState.aboutText1);
+            safeText('about-text-2', AppState.aboutText2);
+            safeText('vision-text', AppState.visionText);
+            safeText('mission-text', AppState.missionText);
+            
+            const cleanPhone = AppState.contactPhone.replace(/[^0-9]/g, '');
+            const waUrl = `https://wa.me/62${cleanPhone.replace(/^0/, '')}`;
+            
+            safeAttr('floating-wa', 'href', waUrl);
+            safeAttr('footer-wa-link', 'href', waUrl);
+            safeText('footer-phone-text', AppState.contactPhone);
+            safeAttr('footer-email-link', 'href', `mailto:${AppState.contactEmail}`);
+            safeText('footer-email-text', AppState.contactEmail);
+            safeAttr('footer-maps-link', 'href', AppState.mapsUrl);
+            safeText('footer-address-text', AppState.contactAddress);
+            safeText('footer-desc-text', AppState.footerDesc);
+            safeText('footer-copyright-text', AppState.footerCopyright);
+            safeAttr('psb-brochure-link', 'href', AppState.brochureUrl);
+            
+            const eduGrid = document.getElementById('edu-units-grid');
+            if (eduGrid) {
+                eduGrid.innerHTML = AppState.eduUnits.map(unit => {
+                    const iconDisplay = unit.customImg 
+                        ? `<img src="${getValidImageUrl(unit.customImg)}" class="w-full h-full object-cover rounded-xl">`
+                        : `<i class="fa-solid ${unit.icon || 'fa-school'}"></i>`;
+                    
+                    return `
+                    <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all space-y-3">
+                        <div class="flex items-center justify-between">
+                            <div class="w-10 h-10 bg-theme-soft text-theme-primary rounded-xl flex items-center justify-center text-lg overflow-hidden">
+                                ${iconDisplay}
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 px-2.5 py-1 rounded-md">${unit.tag}</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base">${unit.name}</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">${unit.desc}</p>
+                        <button onclick="openPsbModal()" class="text-xs font-bold text-theme-primary hover:underline inline-flex items-center gap-1 pt-1">
+                            Daftar Unit Ini <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                `;
+                }).join('');
+            }
+            
+            const progGrid = document.getElementById('programs-grid');
+            if (progGrid) {
+                progGrid.innerHTML = AppState.programs.map(prog => {
+                    const iconDisplay = prog.customImg 
+                        ? `<img src="${getValidImageUrl(prog.customImg)}" class="w-full h-full object-cover rounded-xl">`
+                        : `<i class="fa-solid ${prog.icon || 'fa-brain'}"></i>`;
+                    return `
+                    <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 hover:bg-white hover:shadow-md transition-all space-y-3">
+                        <div class="w-10 h-10 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center text-lg overflow-hidden">
+                            ${iconDisplay}
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base">${prog.title}</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">${prog.desc}</p>
+                    </div>
+                `;
+                }).join('');
+            }
+            
+            renderGalleryGrid('all');
+            
+            const newsGrid = document.getElementById('news-grid');
+            if (newsGrid) {
+                newsGrid.innerHTML = AppState.news.map((item, idx) => {
+                    const hasImg = item.img && item.img.trim().length > 0;
+                    const imageMarkup = hasImg ? `
+                        <div class="relative h-48 overflow-hidden bg-slate-100">
+                            <img src="${getValidImageUrl(item.img)}" onerror="this.src='${DEFAULT_NEWS_FALLBACK_IMG}'" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <span class="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider bg-teal-700/90 text-white px-2.5 py-1 rounded-md backdrop-blur-sm">${item.cat || 'Berita'}</span>
+                        </div>
+                    ` : '';
+                    
+                    return `
+                    <article onclick="openNewsDetail(${idx})" class="bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group cursor-pointer">
+                        ${imageMarkup}
+                        <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                            <div class="space-y-2">
+                                ${!hasImg ? `<span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-teal-100 text-teal-800 px-2 py-0.5 rounded mb-1">${item.cat || 'Berita'}</span>` : ''}
+                                <h4 class="font-bold text-slate-900 text-base leading-snug group-hover:text-teal-700 transition-colors line-clamp-2">${item.title}</h4>
+                                <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">${item.summary}</p>
+                            </div>
+                            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+                                <span class="text-theme-primary font-bold group-hover:underline inline-flex items-center gap-1">
+                                    Baca Selengkapnya <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                </span>
+                                <span class="text-[11px] font-normal text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>${item.date}</span>
+                            </div>
+                        </div>
+                    </article>
+                `;
+                }).join('');
+            }
+        }
+
+        window.renderGalleryGrid = function(catFilter = 'all') {
+            const galGrid = document.getElementById('gallery-grid');
+            if (!galGrid) return;
+            const filtered = catFilter === 'all' ? AppState.gallery : AppState.gallery.filter(g => g.cat === catFilter);
+            
+            galGrid.innerHTML = filtered.map(item => {
+                const validImg = getValidImageUrl(item.img);
+                const formatCatLabel = (item.cat || '').replace(/_/g, ' ').toUpperCase();
+                return `
+                <div onclick="openLightbox('${validImg}')" class="group relative rounded-2xl overflow-hidden shadow-sm cursor-pointer h-48 bg-slate-200">
+                    <img src="${validImg}" onerror="this.src='${DEFAULT_NEWS_FALLBACK_IMG}'" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
+                        <span class="text-[10px] text-amber-300 font-bold uppercase tracking-wider">${formatCatLabel}</span>
+                        <h5 class="text-white font-bold text-xs leading-snug">${item.title}</h5>
+                    </div>
+                </div>
+            `;
+            }).join('');
+        };
+
+        window.filterGallery = function(cat) {
+            document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-theme-primary', 'text-white');
+                btn.classList.add('bg-white', 'text-slate-600');
+            });
+            const activeBtn = document.getElementById(`btn-gal-${cat}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-slate-600');
+                activeBtn.classList.add('bg-theme-primary', 'text-white');
+            }
+            window.renderGalleryGrid(cat);
+        };
+
+        window.openAdminLoginModal = function() {
+            document.getElementById('admin-login-modal').classList.remove('hidden');
+        };
+
+        window.closeAdminLoginModal = function() {
+            document.getElementById('admin-login-modal').classList.add('hidden');
+            safeText('admin-login-error', '');
+            safeValue('admin-password-input', '');
+        };
+
+        window.handleAdminLogin = async function(e) {
+            e.preventDefault();
+            const passInput = document.getElementById('admin-password-input').value;
+            const inputHash = await hashPassword(passInput);
+            
+            if (inputHash === AppState.adminPassHash) {
+                window.closeAdminLoginModal();
+                document.getElementById('admin-modal').classList.remove('hidden');
+                renderAdminData();
+            } else {
+                const errEl = document.getElementById('admin-login-error');
+                if (errEl) {
+                    errEl.innerText = "Kata sandi salah! Silakan coba lagi.";
+                    errEl.classList.remove('hidden');
+                }
+            }
+        };
+
+        window.changeAdminPassword = async function() {
+            const oldP = document.getElementById('input-old-pass').value;
+            const newP = document.getElementById('input-new-pass').value;
+            
+            const oldHash = await hashPassword(oldP);
+            if (oldHash !== AppState.adminPassHash) {
+                showToast('Gagal', 'Kata sandi lama salah!');
+                return;
+            }
+            if (!newP || newP.length < 4) {
+                showToast('Gagal', 'Kata sandi baru minimal 4 karakter.');
+                return;
+            }
+            
+            AppState.adminPassHash = await hashPassword(newP);
+            window.saveAppStateToFirebase(true);
+            safeValue('input-old-pass', '');
+            safeValue('input-new-pass', '');
+            showToast('Berhasil!', 'Kata sandi Admin berhasil diubah.');
+        };
+
+        window.closeAdminPortal = function() {
+            document.getElementById('admin-modal').classList.add('hidden');
+        };
+
+        window.switchAdminTab = function(tabName) {
+            document.querySelectorAll('.admin-tab-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.admin-tab-btn').forEach(b => {
+                b.classList.remove('text-theme-primary', 'border-b-2', 'border-theme-primary', 'font-bold');
+                b.classList.add('text-slate-600');
+            });
+
+            const content = document.getElementById(`admin-tab-${tabName}`);
+            const btn = document.getElementById(`tab-btn-${tabName}`);
+            if (content) content.classList.remove('hidden');
+            if (btn) {
+                btn.classList.add('text-theme-primary', 'border-b-2', 'border-theme-primary', 'font-bold');
+                btn.classList.remove('text-slate-600');
+            }
+
+            if (tabName === 'submissions') {
+                window.loadAdminSubmissions();
+            }
+        };
+
+        function renderAdminData() {
+            safeValue('input-theme-color', AppState.themeColor || '#006f79');
+            safeValue('input-theme-font', AppState.themeFont || "'Plus Jakarta Sans', sans-serif");
+            safeValue('input-brand-title', AppState.brandTitle);
+            safeValue('input-brand-sub', AppState.brandSub);
+            safeValue('input-contact-phone', AppState.contactPhone);
+            safeValue('input-contact-email', AppState.contactEmail);
+            safeValue('input-contact-address', AppState.contactAddress);
+            safeValue('input-footer-desc', AppState.footerDesc);
+            safeValue('input-footer-copyright', AppState.footerCopyright);
+
+            safeValue('input-hero-title', AppState.heroTitle);
+            safeValue('input-hero-sub', AppState.heroSub);
+            safeValue('input-hero-bg', AppState.heroBgImg);
+            safeValue('input-intro-img', AppState.introImg);
+            safeValue('input-about-1', AppState.aboutText1);
+            safeValue('input-about-2', AppState.aboutText2);
+            safeValue('input-vision', AppState.visionText);
+            safeValue('input-mission', AppState.missionText);
+
+            safeValue('input-blogspot-url', AppState.blogspotUrl);
+            safeValue('input-brochure-url', AppState.brochureUrl);
+
+            const adminEduList = document.getElementById('admin-edu-list');
+            if (adminEduList) {
+                adminEduList.innerHTML = AppState.eduUnits.map(unit => `
+                    <div class="bg-slate-100 p-3 rounded-lg flex items-center justify-between border">
+                        <div>
+                            <h5 class="font-bold text-slate-900">${unit.name} <span class="text-[10px] text-teal-700 font-bold">(${unit.tag})</span></h5>
+                            <p class="text-[11px] text-slate-600 line-clamp-1">${unit.desc}</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="editEdu(${unit.id})" class="text-teal-700 font-bold hover:underline">Edit</button>
+                            <button onclick="deleteEdu(${unit.id})" class="text-rose-600 font-bold hover:underline">Hapus</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            const adminProgList = document.getElementById('admin-prog-list');
+            if (adminProgList) {
+                adminProgList.innerHTML = AppState.programs.map(prog => `
+                    <div class="bg-slate-100 p-3 rounded-lg flex items-center justify-between border">
+                        <div>
+                            <h5 class="font-bold text-slate-900">${prog.title}</h5>
+                            <p class="text-[11px] text-slate-600 line-clamp-1">${prog.desc}</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="editProg(${prog.id})" class="text-teal-700 font-bold hover:underline">Edit</button>
+                            <button onclick="deleteProg(${prog.id})" class="text-rose-600 font-bold hover:underline">Hapus</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            const adminNewsList = document.getElementById('admin-news-list');
+            if (adminNewsList) {
+                adminNewsList.innerHTML = AppState.news.map(n => `
+                    <div class="bg-slate-100 p-3 rounded-lg flex items-center justify-between border">
+                        <div class="flex items-center gap-3">
+                            ${n.img ? `<img src="${getValidImageUrl(n.img)}" onerror="this.src='${DEFAULT_NEWS_FALLBACK_IMG}'" class="w-12 h-12 object-cover rounded">` : `<div class="w-12 h-12 bg-slate-200 rounded flex items-center justify-center text-[10px] text-slate-500">No Img</div>`}
+                            <div>
+                                <h5 class="font-bold text-slate-900">${n.title}</h5>
+                                <p class="text-[11px] text-slate-600">${n.date} | ${n.cat}</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="editNews(${n.id})" class="text-teal-700 font-bold hover:underline">Edit</button>
+                            <button onclick="deleteNews(${n.id})" class="text-rose-600 font-bold hover:underline">Hapus</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            const adminGalList = document.getElementById('admin-gal-list');
+            if (adminGalList) {
+                adminGalList.innerHTML = AppState.gallery.map(g => `
+                    <div class="bg-slate-100 p-2 rounded-lg border relative group">
+                        <img src="${getValidImageUrl(g.img)}" onerror="this.src='${DEFAULT_NEWS_FALLBACK_IMG}'" class="w-full h-20 object-cover rounded mb-1">
+                        <h6 class="font-bold text-[10px] text-slate-900 truncate">${g.title}</h6>
+                        <div class="flex justify-between items-center text-[10px] mt-1">
+                            <span class="text-teal-700 font-bold capitalize">${(g.cat || '').replace(/_/g, ' ')}</span>
+                            <button onclick="deleteGal(${g.id})" class="text-rose-600 font-bold hover:underline">Hapus</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            window.loadAdminSubmissions();
+        }
+
+        window.handlePsbSubmit = async function(e) {
+            e.preventDefault();
+            const sub = {
+                name: document.getElementById('psb-name').value,
+                gender: "Laki-laki",
+                unit: document.getElementById('psb-unit').value,
+                phone: document.getElementById('psb-phone').value,
+                address: document.getElementById('psb-address').value,
+                createdAt: serverTimestamp ? serverTimestamp() : new Date().toISOString()
+            };
+
+            try {
+                if (db) {
+                    await addDoc(collection(db, "psb_submissions"), sub);
+                }
+                window.closePsbModal();
+                showToast('Pendaftaran Berhasil!', 'Data pendaftaran Anda telah dikirim.');
+                e.target.reset();
+                if (!document.getElementById('admin-modal').classList.contains('hidden')) {
+                    window.loadAdminSubmissions();
+                }
+            } catch (error) {
+                console.error("Gagal menyimpan ke Firestore:", error);
+                showToast('Gagal Mengirim', 'Terjadi kesalahan sistem, silakan coba lagi.');
+            }
+        };
+
+        window.loadAdminSubmissions = async function() {
+            const subList = document.getElementById('admin-submissions-list');
+            if (!subList) return;
+
+            if (!db) {
+                subList.innerHTML = `<p class="text-slate-500 italic">Database cloud offline, belum ada pendaftaran tercatat.</p>`;
+                return;
+            }
+
+            subList.innerHTML = `<p class="text-slate-500 italic">Memuat data pendaftar dari Firestore...</p>`;
+            try {
+                const q = query(collection(db, "psb_submissions"), orderBy("createdAt", "desc"));
+                const querySnapshot = await getDocs(q);
+                
+                if (querySnapshot.empty) {
+                    subList.innerHTML = `<p class="text-slate-500 italic">Belum ada pendaftaran online masuk.</p>`;
+                    return;
+                }
+
+                let htmlContent = '';
+                querySnapshot.forEach((docSnap) => {
+                    const sub = docSnap.data();
+                    const docId = docSnap.id;
+                    const tgl = sub.createdAt && sub.createdAt.toDate ? new Date(sub.createdAt.toDate()).toLocaleDateString('id-ID') : '-';
+                    htmlContent += `
+                        <div class="bg-slate-100 p-3 rounded-lg flex items-center justify-between border">
+                            <div>
+                                <h5 class="font-bold text-slate-900">${sub.name} (${sub.gender || 'Laki-laki'})</h5>
+                                <p class="text-[11px] text-slate-600">Jenjang: ${sub.unit} | WA: ${sub.phone} | Tgl: ${tgl}</p>
+                                <p class="text-[10px] text-slate-500">Alamat: ${sub.address}</p>
+                            </div>
+                            <button onclick="deleteSubmissionFromFirebase('${docId}')" class="text-rose-600 font-bold hover:underline text-xs">Hapus</button>
+                        </div>
+                    `;
+                });
+                subList.innerHTML = htmlContent;
+            } catch (err) {
+                console.error("Gagal membaca Firestore:", err);
+                subList.innerHTML = `<p class="text-rose-600 italic">Gagal memuat data dari database.</p>`;
+            }
+        };
+
+        window.deleteSubmissionFromFirebase = async function(docId) {
+            if (confirm("Apakah Anda yakin ingin menghapus data pendaftar ini?")) {
+                try {
+                    if (db) {
+                        await deleteDoc(doc(db, "psb_submissions", docId));
+                    }
+                    showToast('Dihapus', 'Data pendaftar berhasil dihapus.');
+                    window.loadAdminSubmissions();
+                } catch (error) {
+                    showToast('Gagal', 'Gagal menghapus data dari database.');
+                }
+            }
+        };
+
+        let currentOpenNews = null;
+        window.openNewsDetail = function(idx) {
+            const item = AppState.news[idx];
+            if (!item) return;
+            currentOpenNews = item;
+            
+            safeText('news-modal-cat', item.cat || 'Berita');
+            safeText('news-modal-date', item.date || '-');
+            safeText('news-modal-title', item.title || '');
+            safeHTML('news-modal-content', item.content || item.summary || '');
+            
+            const imgContainer = document.getElementById('news-modal-img-container');
+            const imgEl = document.getElementById('news-modal-img');
+            
+            if (item.img && item.img.trim().length > 0) {
+                if (imgContainer) imgContainer.classList.remove('hidden');
+                if (imgEl) imgEl.src = getValidImageUrl(item.img);
+            } else {
+                if (imgContainer) imgContainer.classList.add('hidden');
+            }
+            
+            document.getElementById('news-detail-modal').classList.remove('hidden');
+        };
+
+        window.closeNewsDetailModal = function() {
+            document.getElementById('news-detail-modal').classList.add('hidden');
+        };
+
+        window.shareArticle = function(type) {
+            if (!currentOpenNews) return;
+            const articleUrl = currentOpenNews.link && currentOpenNews.link !== '#' ? currentOpenNews.link : window.location.href;
+            const text = `${currentOpenNews.title} - Pondok Pesantren Hidayatullah Panceng: ${articleUrl}`;
+            
+            if (type === 'wa') {
+                window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
+            } else if (type === 'fb') {
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`, '_blank');
+            } else if (type === 'copy') {
+                navigator.clipboard.writeText(articleUrl);
+                showToast('Link Disalin!', 'Tautan berita disalin ke papan klip.');
+            }
+        };
+
+        window.handleLogoUpload = async function(input) {
+            if (input.files && input.files[0]) {
+                try {
+                    const compressed = await compressAndResizeImage(input.files[0], 400, 0.7);
+                    AppState.customLogoUrl = compressed;
+                    window.saveAppStateToFirebase(true);
+                } catch (e) {
+                    showToast('Gagal Upload', 'Tidak dapat memproses file gambar logo.');
+                }
+            }
+        };
+
+        window.handleImageUpload = async function(input, targetInputId) {
+            if (input.files && input.files[0]) {
+                try {
+                    const compressed = await compressAndResizeImage(input.files[0], 800, 0.6);
+                    safeValue(targetInputId, compressed);
+                } catch(e) {
+                    showToast('Gagal Upload', 'Tidak dapat memproses file gambar.');
+                }
+            }
+        };
+
+        window.handleBrochureFileUpload = function(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    AppState.brochureUrl = e.target.result;
+                    safeValue('input-brochure-url', e.target.result);
+                    window.saveAppStateToFirebase(true);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        };
+
+        window.openPsbModal = () => document.getElementById('psb-modal').classList.remove('hidden');
+        window.closePsbModal = () => document.getElementById('psb-modal').classList.add('hidden');
+
+        window.openEduModal = (editUnit = null) => {
+            safeValue('edit-edu-id', editUnit ? editUnit.id : '');
+            safeValue('edu-name-input', editUnit ? editUnit.name : '');
+            safeValue('edu-tag-input', editUnit ? editUnit.tag : '');
+            safeValue('edu-icon-input', editUnit ? editUnit.icon : 'fa-school');
+            safeValue('edu-custom-img-input', editUnit ? editUnit.customImg : '');
+            safeValue('edu-desc-input', editUnit ? editUnit.desc : '');
+            safeText('edu-modal-title', editUnit ? 'Edit Unit Pendidikan' : 'Tambah Unit Pendidikan');
+            document.getElementById('crud-edu-modal').classList.remove('hidden');
+        };
+        window.closeEduModal = () => document.getElementById('crud-edu-modal').classList.add('hidden');
+
+        window.handleSaveEdu = function(e) {
+            e.preventDefault();
+            const id = document.getElementById('edit-edu-id').value;
+            const newItem = {
+                id: id ? parseInt(id) : Date.now(),
+                name: document.getElementById('edu-name-input').value,
+                tag: document.getElementById('edu-tag-input').value,
+                icon: document.getElementById('edu-icon-input').value,
+                customImg: document.getElementById('edu-custom-img-input').value,
+                desc: document.getElementById('edu-desc-input').value
+            };
+            if (id) {
+                const idx = AppState.eduUnits.findIndex(u => u.id === parseInt(id));
+                if (idx !== -1) AppState.eduUnits[idx] = newItem;
+            } else {
+                AppState.eduUnits.push(newItem);
+            }
+            window.saveAppStateToFirebase(true);
+            renderAdminData();
+            closeEduModal();
+        };
+
+        window.editEdu = (id) => { const u = AppState.eduUnits.find(x => x.id === id); if (u) window.openEduModal(u); };
+        window.deleteEdu = (id) => { AppState.eduUnits = AppState.eduUnits.filter(x => x.id !== id); window.saveAppStateToFirebase(true); renderAdminData(); };
+
+        window.openProgModal = (editProg = null) => {
+            safeValue('edit-prog-id', editProg ? editProg.id : '');
+            safeValue('prog-title-input', editProg ? editProg.title : '');
+            safeValue('prog-icon-input', editProg ? editProg.icon : 'fa-brain');
+            safeValue('prog-custom-img-input', editProg ? editProg.customImg : '');
+            safeValue('prog-desc-input', editProg ? editProg.desc : '');
+            safeText('prog-modal-title', editProg ? 'Edit Program Unggulan' : 'Tambah Program Unggulan');
+            document.getElementById('crud-prog-modal').classList.remove('hidden');
+        };
+        window.closeProgModal = () => document.getElementById('crud-prog-modal').classList.add('hidden');
+
+        window.handleSaveProg = function(e) {
+            e.preventDefault();
+            const id = document.getElementById('edit-prog-id').value;
+            const newItem = {
+                id: id ? parseInt(id) : Date.now(),
+                title: document.getElementById('prog-title-input').value,
+                icon: document.getElementById('prog-icon-input').value,
+                customImg: document.getElementById('prog-custom-img-input').value,
+                desc: document.getElementById('prog-desc-input').value
+            };
+            if (id) {
+                const idx = AppState.programs.findIndex(p => p.id === parseInt(id));
+                if (idx !== -1) AppState.programs[idx] = newItem;
+            } else {
+                AppState.programs.push(newItem);
+            }
+            window.saveAppStateToFirebase(true);
+            renderAdminData();
+            closeProgModal();
+        };
+
+        window.editProg = (id) => { const p = AppState.programs.find(x => x.id === id); if (p) window.openProgModal(p); };
+        window.deleteProg = (id) => { AppState.programs = AppState.programs.filter(p => p.id !== id); window.saveAppStateToFirebase(true); renderAdminData(); };
+
+        window.openNewsModal = (editItem = null) => {
+            safeValue('edit-news-id', editItem ? editItem.id : '');
+            safeValue('news-title-input', editItem ? editItem.title : '');
+            safeValue('news-cat-input', editItem ? editItem.cat : 'Kegiatan');
+            safeValue('news-date-input', editItem ? editItem.date : new Date().toLocaleDateString('id-ID'));
+            safeValue('news-img-input', editItem ? editItem.img : '');
+            safeValue('news-summary-input', editItem ? editItem.summary : '');
+            safeValue('news-content-input', editItem ? editItem.content : '');
+            safeText('news-modal-admin-title', editItem ? 'Edit Berita' : 'Tambah Berita Baru');
+            document.getElementById('crud-news-modal').classList.remove('hidden');
+        };
+        window.closeNewsModal = () => document.getElementById('crud-news-modal').classList.add('hidden');
+
+        window.handleSaveNews = function(e) {
+            e.preventDefault();
+            const id = document.getElementById('edit-news-id').value;
+            const rawImg = document.getElementById('news-img-input').value;
+            const newItem = {
+                id: id ? parseInt(id) : Date.now(),
+                title: document.getElementById('news-title-input').value,
+                cat: document.getElementById('news-cat-input').value,
+                date: document.getElementById('news-date-input').value,
+                img: rawImg,
+                summary: document.getElementById('news-summary-input').value,
+                content: document.getElementById('news-content-input').value
+            };
+            if (id) {
+                const idx = AppState.news.findIndex(n => n.id === parseInt(id));
+                if (idx !== -1) AppState.news[idx] = newItem;
+            } else {
+                AppState.news.unshift(newItem);
+            }
+            window.saveAppStateToFirebase(true);
+            renderAdminData();
+            closeNewsModal();
+        };
+
+        window.editNews = (id) => { const n = AppState.news.find(x => x.id === id); if (n) window.openNewsModal(n); };
+        window.deleteNews = (id) => { AppState.news = AppState.news.filter(n => n.id !== id); window.saveAppStateToFirebase(true); renderAdminData(); };
+
+        window.openGalModal = () => {
+            safeValue('edit-gal-id', '');
+            safeValue('gal-title-input', '');
+            safeValue('gal-cat-input', 'pendidikan');
+            safeValue('gal-img-input', '');
+            document.getElementById('crud-gal-modal').classList.remove('hidden');
+        };
+        window.closeGalModal = () => document.getElementById('crud-gal-modal').classList.add('hidden');
+
+        window.handleSaveGal = function(e) {
+            e.preventDefault();
+            const rawImg = document.getElementById('gal-img-input').value;
+            const newItem = {
+                id: Date.now(),
+                title: document.getElementById('gal-title-input').value,
+                cat: document.getElementById('gal-cat-input').value,
+                img: getValidImageUrl(rawImg)
+            };
+            AppState.gallery.unshift(newItem);
+            window.saveAppStateToFirebase(true);
+            renderAdminData();
+            closeGalModal();
+        };
+
+        window.deleteGal = (id) => { 
+            AppState.gallery = AppState.gallery.filter(g => g.id !== id); 
+            window.saveAppStateToFirebase(true); 
+            renderAdminData(); 
+        };
+
+        window.openLightbox = function(imgUrl) {
+            safeAttr('lightbox-img', 'src', getValidImageUrl(imgUrl));
+            document.getElementById('lightbox-modal').classList.remove('hidden');
+        };
+        window.closeLightbox = () => document.getElementById('lightbox-modal').classList.add('hidden');
+
+        window.toggleMobileMenu = function() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.toggle('hidden');
+        };
+
+        // Muat data saat halaman dibuka
+        loadAppStateFromFirebase();
+    </script>
+</body>
+</html>
